@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.11)
+
+project(AdventOfCode2019)
+
+set(CMAKE_CXX_STANDARD 11)
+
+include_directories(include)
+link_directories(lib)
+
+# Create executable
+add_executable(01-December 01-december/main 01-december/FuelRequirementCalculator common/FileLoader)
+add_executable(01-DecemberTest 01-december/test 01-december/FuelRequirementCalculator common/FileLoader)
+target_link_libraries(01-DecemberTest gtest gtest_main)
+add_test(01-DecemberTest 01-DecemberTest)
