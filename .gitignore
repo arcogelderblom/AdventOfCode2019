@@ -1,2 +1,5 @@
 # ignore build directory
 _builds/
+
+# ignore vs code directory
+.vscode/
