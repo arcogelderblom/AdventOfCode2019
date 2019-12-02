@@ -4,6 +4,7 @@
 
 class FuelRequirementCalculator {
     public:
-        const int getSumOfFuelRequirements(const std::vector<int> masses);
-        const int getFuelRequirement(const int mass);
+        int getSumOfFuelRequirements(const std::vector<int> masses, int puzzleNumber);
+        int getFuelRequirementPuzzleOne(const int mass);
+        int getFuelRequirementPuzzleTwo(const int mass);
 };

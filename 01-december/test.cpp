@@ -2,22 +2,42 @@
 
 #include "FuelRequirementCalculator.hpp"
 
-TEST(DecemberFirstTests, TestOne) {
+TEST(DecemberFirstTests, PuzzleOneTestOne) {
     FuelRequirementCalculator calculator;
-    ASSERT_EQ(calculator.getFuelRequirement(12), 2);
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleOne(12), 2);
 }
 
-TEST(DecemberFirstTests, TestTwo) {
+TEST(DecemberFirstTests, PuzzleOneTestTwo) {
     FuelRequirementCalculator calculator;
-    ASSERT_EQ(calculator.getFuelRequirement(14), 2);
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleOne(14), 2);
 }
 
-TEST(DecemberFirstTests, TestThree) {
+TEST(DecemberFirstTests, PuzzleOneTestThree) {
     FuelRequirementCalculator calculator;
-    ASSERT_EQ(calculator.getFuelRequirement(1969), 654);
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleOne(1969), 654);
 }
 
-TEST(DecemberFirstTests, TestFour) {
+TEST(DecemberFirstTests, PuzzleOneTestFour) {
     FuelRequirementCalculator calculator;
-    ASSERT_EQ(calculator.getFuelRequirement(100756), 33583);
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleOne(100756), 33583);
+}
+
+TEST(DecemberFirstTests, PuzzleTwoTestOne) {
+    FuelRequirementCalculator calculator;
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleTwo(12), 2);
+}
+
+TEST(DecemberFirstTests, PuzzleTwoTestTwo) {
+    FuelRequirementCalculator calculator;
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleTwo(14), 2);
+}
+
+TEST(DecemberFirstTests, PuzzleTwoTestThree) {
+    FuelRequirementCalculator calculator;
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleTwo(1969), 966);
+}
+
+TEST(DecemberFirstTests, PuzzleTwoTestFour) {
+    FuelRequirementCalculator calculator;
+    ASSERT_EQ(calculator.getFuelRequirementPuzzleTwo(100756), 50346);
 }

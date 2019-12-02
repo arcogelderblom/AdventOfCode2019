@@ -5,6 +5,7 @@ project(AdventOfCode2019)
 set(CMAKE_CXX_STANDARD 11)
 
 include_directories(include)
+include_directories(common)
 link_directories(lib)
 
 # Create executable
