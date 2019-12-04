@@ -28,9 +28,9 @@ int main() {
         wirePaths.push_back(WirePath(wireInstructions));
     }
 
-    ManhattanDistanceCalculator calculator;
+    ManhattanDistanceCalculator calculator(wirePaths);
 
-    std::cout << "The result for puzzle one is: " << calculator.getManhattanShortestDistance(wirePaths) << std::endl;
-    
+    std::cout << "The result for puzzle one is: " << calculator.getManhattanShortestDistance() << std::endl;
+    std::cout << "The result for puzzle two is: " << calculator.getFewestSteps() << std::endl;
     return 0;
 }
