@@ -17,6 +17,11 @@ You can run a test using
 ```sh
 ./_builds/01-DecemberTest
 ```
+or by running
+```sh
+cd _builds
+ctest run
+```
 
 ### Windows
 Use the command line to build the code. `cd` into the root directory using cmd and run this command:
