@@ -25,14 +25,19 @@ add_executable(02-DecemberTest 02-december/test 02-december/IntcodeComputer)
 add_executable(03-December 03-december/main 03-december/WirePath 03-december/ManhattanDistanceCalculator common/FileLoader)
 add_executable(03-DecemberTest 03-december/test 03-december/WirePath 03-december/ManhattanDistanceCalculator)
 
-# Create executable for december four (there is no test for day 4)
+# Create executable for december four
 add_executable(04-December 04-december/main 04-december/PasswordGenerator)
 add_executable(04-DecemberTest 04-december/test 04-december/PasswordGenerator)
+
+# Create executable for december five
+add_executable(05-December 05-december/main 05-december/IntcodeComputer common/FileLoader)
+add_executable(05-DecemberTest 05-december/test 05-december/IntcodeComputer)
 
 target_link_libraries(01-DecemberTest gtest gtest_main)
 target_link_libraries(02-DecemberTest gtest gtest_main)
 target_link_libraries(03-DecemberTest gtest gtest_main)
 target_link_libraries(04-DecemberTest gtest gtest_main)
+target_link_libraries(05-DecemberTest gtest gtest_main)
 
 include(GoogleTest)
 enable_testing()
@@ -40,3 +45,4 @@ gtest_discover_tests(01-DecemberTest)
 gtest_discover_tests(02-DecemberTest)
 gtest_discover_tests(03-DecemberTest)
 gtest_discover_tests(04-DecemberTest)
+gtest_discover_tests(05-DecemberTest)
