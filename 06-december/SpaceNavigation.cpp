@@ -50,3 +50,39 @@ int SpaceNavigation::totalOrbits() {
 
     return result;
 }
+
+int SpaceNavigation::getMinOrbitalTransfers(const std::string object1Name, const std::string object2Name) {
+    discoverOrbits();
+    
+    Object * firstObject;
+    Object * secondObject;
+    for (Object * o : objects) {
+        if (o->name == object1Name) {
+            firstObject = o;
+        }
+        if (o->name == object2Name) {
+            secondObject = o;
+        }
+    }
+
+    std::vector<std::string> pathObject1;
+    std::vector<std::string> pathObject2;
+    while(firstObject->name != "COM") {
+        firstObject = firstObject->orbitsObject;
+        pathObject1.push_back(firstObject->name);
+    }
+    while(secondObject->name != "COM") {
+        secondObject = secondObject->orbitsObject;
+        pathObject2.push_back(secondObject->name);
+    }
+
+    for (int i = 0; i < pathObject1.size(); i++) {
+        for (int j = 0; j < pathObject1.size(); j++) {
+            if (pathObject1[i] == pathObject2[j]) {
+                return i+j;
+            }
+        }
+    }
+
+    return 0;
+}

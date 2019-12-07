@@ -16,4 +16,5 @@ class SpaceNavigation {
     public:
         SpaceNavigation(std::vector<std::string> map);
         int totalOrbits();
+        int getMinOrbitalTransfers(const std::string object1Name, const std::string object2Name);
 };

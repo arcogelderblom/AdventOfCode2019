@@ -9,6 +9,7 @@ int main() {
     
     SpaceNavigation navigator(map);
     std::cout << "The result for puzzle one is: " << navigator.totalOrbits() << std::endl;
+    std::cout << "The result for puzzle two is: " << navigator.getMinOrbitalTransfers("YOU", "SAN") << std::endl;
     
     return 0;
 }
