@@ -33,9 +33,13 @@ add_executable(04-DecemberTest 04-december/test 04-december/PasswordGenerator)
 add_executable(05-December 05-december/main 05-december/IntcodeComputer common/FileLoader)
 add_executable(05-DecemberTest 05-december/test 05-december/IntcodeComputer)
 
-# Create executable for december five
+# Create executable for december six
 add_executable(06-December 06-december/main 06-december/SpaceNavigation common/FileLoader)
 add_executable(06-DecemberTest 06-december/test 06-december/SpaceNavigation)
+
+# Create executable for december seven
+add_executable(07-December 07-december/main 07-december/IntcodeComputer 07-december/AmplificationComputers common/FileLoader)
+add_executable(07-DecemberTest 07-december/test 07-december/IntcodeComputer 07-december/AmplificationComputers)
 
 target_link_libraries(01-DecemberTest gtest gtest_main)
 target_link_libraries(02-DecemberTest gtest gtest_main)
@@ -43,6 +47,7 @@ target_link_libraries(03-DecemberTest gtest gtest_main)
 target_link_libraries(04-DecemberTest gtest gtest_main)
 target_link_libraries(05-DecemberTest gtest gtest_main)
 target_link_libraries(06-DecemberTest gtest gtest_main)
+target_link_libraries(07-DecemberTest gtest gtest_main)
 
 include(GoogleTest)
 enable_testing()
@@ -52,3 +57,4 @@ gtest_discover_tests(03-DecemberTest)
 gtest_discover_tests(04-DecemberTest)
 gtest_discover_tests(05-DecemberTest)
 gtest_discover_tests(06-DecemberTest)
+gtest_discover_tests(07-DecemberTest)
