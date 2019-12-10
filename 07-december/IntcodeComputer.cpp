@@ -1,5 +1,7 @@
 #include "IntcodeComputer.hpp"
 
+#include <iostream>
+
 IntcodeComputer::IntcodeComputer(std::vector<int> & memory): 
     memory(memory)
     {}

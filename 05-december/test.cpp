@@ -8,7 +8,7 @@ TEST(DecemberFiveTests, PuzzleOneTestOne) {
     ASSERT_EQ(intcodeComputer.getResultFromAddress(4), 99);
 }
 
-TEST(DecemberFourTests, PuzzleOneTestTwo) {
+TEST(DecemberFiveTests, PuzzleOneTestTwo) {
     std::vector<int> program = {1101,100,-1,4,0};
     IntcodeComputer intcodeComputer(program);
     ASSERT_EQ(intcodeComputer.getResultFromAddress(4), 99);
