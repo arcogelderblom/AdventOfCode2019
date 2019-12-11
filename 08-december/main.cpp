@@ -34,7 +34,7 @@ int main() {
     }
 
     std::cout << "The result for puzzle one is: " << getAmountOfNumInLayer(layerWithLeastZeroes, 1) * getAmountOfNumInLayer(layerWithLeastZeroes, 2) << std::endl;
-    std::cout << "The result for puzzle one is: " << std::endl;
+    std::cout << "The result for puzzle two is: " << std::endl;
     pictureDecoder.printPicture(picture);
     return 0;
 }
