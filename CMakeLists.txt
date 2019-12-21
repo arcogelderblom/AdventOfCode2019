@@ -53,6 +53,14 @@ add_executable(09-DecemberTest 09-december/test 09-december/IntcodeComputer)
 add_executable(10-December 10-december/main 10-december/MonitorStationLocation common/FileLoader)
 add_executable(10-DecemberTest 10-december/test 10-december/MonitorStationLocation)
 
+# Create test and executable for december eleven
+add_executable(11-December 11-december/main 11-december/IntcodeComputer 11-december/EmergencyHullPaintingRobot common/FileLoader)
+add_executable(11-DecemberTest 11-december/test 11-december/IntcodeComputer 11-december/EmergencyHullPaintingRobot)
+
+# Create test and executable for december twelve
+add_executable(12-December 12-december/main common/FileLoader)
+add_executable(12-DecemberTest 12-december/test)
+
 target_link_libraries(01-DecemberTest gtest gtest_main)
 target_link_libraries(02-DecemberTest gtest gtest_main)
 target_link_libraries(03-DecemberTest gtest gtest_main)
@@ -63,6 +71,8 @@ target_link_libraries(07-DecemberTest gtest gtest_main)
 target_link_libraries(08-DecemberTest gtest gtest_main)
 target_link_libraries(09-DecemberTest gtest gtest_main)
 target_link_libraries(10-DecemberTest gtest gtest_main)
+target_link_libraries(11-DecemberTest gtest gtest_main)
+target_link_libraries(12-DecemberTest gtest gtest_main)
 
 include(GoogleTest)
 enable_testing()
@@ -76,3 +86,5 @@ gtest_discover_tests(07-DecemberTest)
 gtest_discover_tests(08-DecemberTest)
 gtest_discover_tests(09-DecemberTest)
 gtest_discover_tests(10-DecemberTest)
+gtest_discover_tests(11-DecemberTest)
+gtest_discover_tests(12-DecemberTest)
