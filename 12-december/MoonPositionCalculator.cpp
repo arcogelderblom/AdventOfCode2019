@@ -29,7 +29,11 @@ void MoonPositionCalculator::calculateVelocity(Moon & moon1, Moon & moon2) {
 }
 
 void MoonPositionCalculator::calculate(std::vector<Moon> & moons, int steps) {
-    for (int i = 0; i < steps; i++) {
+    // std::cout << "Current step: " << 0 << std::endl;
+    // for (const Moon & moon : moons) {
+    //     std::cout << "<x= " << moon.x << ", y= " << moon.y << ", z= " << moon.z << "> <x= " << std::get<0>(moon.velocity) << ", y= " << std::get<1>(moon.velocity) << ", z= " << std::get<2>(moon.velocity) << ">" << std::endl;
+    // }  
+    for (int i = 1; i <= steps; i++) {
         for (int startIndex = 0; startIndex < moons.size() - 1; startIndex++) {
             for (int index = startIndex + 1; index < moons.size(); index++) {
                 calculateVelocity(moons[startIndex], moons[index]);
@@ -40,6 +44,12 @@ void MoonPositionCalculator::calculate(std::vector<Moon> & moons, int steps) {
             moon.y += std::get<1>(moon.velocity);
             moon.z += std::get<2>(moon.velocity);
         }
+
+        // std::cout << "Current step: " << i << std::endl;
+        // for (const Moon & moon : moons) {
+        //     std::cout << "<x= " << moon.x << ", y= " << moon.y << ", z= " << moon.z << "> <x= " << std::get<0>(moon.velocity) << ", y= " << std::get<1>(moon.velocity) << ", z= " << std::get<2>(moon.velocity) << ">" << std::endl;
+        // }  
+        // std::cout << std::endl;
     }
 }
 
@@ -55,18 +65,112 @@ int MoonPositionCalculator::getTotalEnergy(std::vector<Moon> moons) {
 }
 
 long MoonPositionCalculator::getAmountOfStepsRecurringState(std::vector<Moon> moons) {
+    std::vector<Moon> startState = moons;
+    bool xNumFound = false;
+    bool yNumFound = false;
+    bool zNumFound = false;
+    
+    long stepsX = 0;
+    long stepsY = 0;
+    long stepsZ = 0;
+
     long steps = 0;
-    int curEnergy = -1;
-    while (curEnergy != 0) {
-        calculate(moons, 1);
-        curEnergy = getTotalEnergy(moons);
+    while (!xNumFound || !yNumFound || !zNumFound) {
+        calculate(moons, 1); // calculate one step at a time
         steps += 1;
-        if (steps % 1000000 == 0) {
-            std::cout << "Current step = " << steps << std::endl;
+
+        int xAxisZero = 0;
+        int yAxisZero = 0;
+        int zAxisZero = 0;
+        int sameX = 0;
+        int sameY = 0;
+        int sameZ = 0;
+        for (Moon moon : moons) {
+            if (std::get<0>(moon.velocity) == 0 && !xNumFound) {
+                xAxisZero += 1;
+            }
+            if (std::get<1>(moon.velocity) == 0 && !yNumFound) {
+                yAxisZero += 1;
+            }
+            if (std::get<2>(moon.velocity) == 0 && !zNumFound) {
+                zAxisZero += 1;
+            }
+
+            if (xAxisZero == 4) {
+                int i = 0;
+                for (Moon _moon : moons) {
+                    if (_moon.x == startState[i].x) {
+                        sameX += 1;
+                    }
+                    else {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (yAxisZero == 4) {
+                int i = 0;
+                for (Moon _moon : moons) {
+                    if (_moon.y == startState[i].y) {
+                        sameY += 1;
+                    }
+                    else {
+                        break;
+                    }
+                    i++;
+                }
+            }
+            if (zAxisZero == 4) {
+                int i = 0;
+                for (Moon _moon : moons) {
+                    if (_moon.z == startState[i].z) {
+                        sameZ += 1;
+                    }
+                    else {
+                        break;
+                    }
+                    i++;
+                }
+            }
+
+            if (sameX == 4 && !xNumFound) {
+                xNumFound = true;
+                stepsX = steps;
+            }
+            if (sameY == 4 && !yNumFound) {
+                yNumFound = true;
+                stepsY = steps;
+            }
+            if (sameZ == 4 && !zNumFound) {
+                zNumFound = true;
+                stepsZ = steps;
+            }
         }
     }
 
-    return steps*2;
+    if (stepsX > stepsY && stepsX > stepsZ) {
+        for (long totalSteps = stepsX;;totalSteps+=stepsX) {
+            if (totalSteps % stepsX == 0 && totalSteps % stepsY == 0 && totalSteps % stepsZ == 0) {
+                return totalSteps;
+            }
+        }
+    }
+    if (stepsY > stepsX && stepsY > stepsZ) {
+        for (long totalSteps = stepsY;;totalSteps+=stepsY) {
+            if (totalSteps % stepsX == 0 && totalSteps % stepsY == 0 && totalSteps % stepsZ == 0) {
+                return totalSteps;
+            }
+        }
+    }
+    if (stepsZ > stepsX && stepsZ > stepsY) {
+        for (long totalSteps = stepsZ;;totalSteps+=stepsZ) {
+            if (totalSteps % stepsX == 0 && totalSteps % stepsY == 0 && totalSteps % stepsZ == 0) {
+                return totalSteps;
+            }
+        }
+    }
+
+    return 0;
 }
 
 std::vector<Moon> MoonPositionCalculator::parse(std::vector<std::string> moonStrings) {
