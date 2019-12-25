@@ -121,7 +121,6 @@ int ArcadeCabinet::play() {
             std::pair<int,int> ballPosition = getBallPosition(tiles);
             std::pair<int,int> paddlePosition = getPaddlePosition(tiles);
             if (ballPosition.first != 0 && paddlePosition.first != 0 && oldBallPosition != ballPosition) {
-                printScreen(tiles);
                 if (ballPosition.first > paddlePosition.first) {
                     inputs.push_back(1);
                 } else if (ballPosition.first == paddlePosition.first) {
