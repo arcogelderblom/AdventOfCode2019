@@ -211,5 +211,5 @@ long IntcodeComputer::getOutputUsingInput(std::vector<int> input) {
         calculate();
         return lastOutputtedValue;
     }
-    return -1;
+    return -2;
 }
