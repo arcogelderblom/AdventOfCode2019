@@ -65,6 +65,10 @@ add_executable(12-DecemberTest 12-december/test 12-december/MoonPositionCalculat
 add_executable(13-December 13-december/main 13-december/IntcodeComputer 13-december/ArcadeCabinet common/FileLoader)
 add_executable(13-DecemberTest 13-december/test 13-december/IntcodeComputer 13-december/ArcadeCabinet)
 
+# Create test and executable for december fourteen
+add_executable(14-December 14-december/main 14-december/NanoFactory common/FileLoader)
+add_executable(14-DecemberTest 14-december/test 14-december/NanoFactory)
+
 target_link_libraries(01-DecemberTest gtest gtest_main)
 target_link_libraries(02-DecemberTest gtest gtest_main)
 target_link_libraries(03-DecemberTest gtest gtest_main)
@@ -78,6 +82,7 @@ target_link_libraries(10-DecemberTest gtest gtest_main)
 target_link_libraries(11-DecemberTest gtest gtest_main)
 target_link_libraries(12-DecemberTest gtest gtest_main)
 target_link_libraries(13-DecemberTest gtest gtest_main)
+target_link_libraries(14-DecemberTest gtest gtest_main)
 
 include(GoogleTest)
 enable_testing()
@@ -94,3 +99,4 @@ gtest_discover_tests(10-DecemberTest)
 gtest_discover_tests(11-DecemberTest)
 gtest_discover_tests(12-DecemberTest)
 gtest_discover_tests(13-DecemberTest)
+gtest_discover_tests(14-DecemberTest)
