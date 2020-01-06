@@ -37,7 +37,7 @@ float MonitorStationLocation::calculateAngle(Coordinate self, Coordinate other) 
 
 std::vector<Coordinate> MonitorStationLocation::getAsteroids(std::vector<std::string> map) {
     std::vector<Coordinate> asteroids;
-    for (int y = 0; y <= map.size(); y++) {
+    for (int y = 0; y < map.size(); y++) {
         for (int x = 0; x <= map[y].size(); x++) {
             if (map[y][x] == '#') {
                 Coordinate coordinate = {x,y};
